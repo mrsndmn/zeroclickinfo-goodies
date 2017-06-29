@@ -33,8 +33,8 @@ handle remainder => sub {
         structured_answer => {
 
             data => {
-                title    => '$ans',
-                subtitle => '$base raised to the power of $exp',
+                title    => "$ans",
+                subtitle => "$base raised to the power of $exp",
             },
 
             templates => {
