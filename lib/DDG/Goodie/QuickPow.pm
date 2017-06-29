@@ -1,14 +1,14 @@
 package DDG::Goodie::QuickPow;
 # ABSTRACT: quick pow
 
-use DDG::Goodie;
 use strict;
 use warnings;
+use DDG::Goodie;
+
+triggers startend => 'pow';
 
 zci answer_type => 'quick_pow';
 zci is_cached => 1;
-
-triggers startend => 'pow';
 
 # Handle statemen
 handle remainder => sub {
