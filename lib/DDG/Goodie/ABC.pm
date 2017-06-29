@@ -14,7 +14,7 @@ handle remainder => sub {
 
 	return unless /^\s*\d+(?:\s|,)+\d+\s*$/;
 
-	my ($base, $exp) = grep { /^\d/ }, split m/(?:\s|,)+/;
+	my ($base, $exp) = grep { /^\d/ } split m/(?:\s|,)+/;
 
 	my $ans = 1;
 
