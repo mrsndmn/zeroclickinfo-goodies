@@ -10,7 +10,7 @@ zci is_cached => 1;
 triggers startend => 'pow';
 
 # Handle statemen
-exp_clonehandle remainder => sub {
+handle remainder => sub {
 
 	return unless /^\s*\d+(?:\s|,)+\d+\s*$/;
 
