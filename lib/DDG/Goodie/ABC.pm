@@ -9,23 +9,24 @@ zci is_cached => 1;
 
 triggers startend => 'pow';
 
-# Handle statement
-handle remainder => sub {
+# Handle statemen
+exp_clonehandle remainder => sub {
 
 	return unless /^\s*\d+(?:\s|,)+\d+\s*$/;
 
 	my ($base, $exp) = grep { /^\d/ } split m/(?:\s|,)+/;
 
 	my $ans = 1;
-
-	while ($exp) {
+	my ($b_clone, $exp_clone) = $base, $exp;
+	
+	while ($exp_clone) {
 		# if base is odd 
-		if ($exp & 1) {
-			$ans *= $base;
-			--$exp;
+		if ($exp_clone & 1) {
+			$ans *= $b_clone;
+			--$exp_clone;
 		} else {
-			$base *= $base;
-			$exp >>= 1;
+			$b_clone *= $b_clone;
+			$exp_clone >>= 1;
 		}
 	}
 
