@@ -17,7 +17,7 @@ handle remainder => sub {
 	my ($base, $exp) = grep { /^\d/ } split m/(?:\s|,)+/;
 
 	my $ans = 1;
-	my ($b_clone, $exp_clone) = $base, $exp;
+	my ($b_clone, $exp_clone) = ($base, $exp);
 	
 	while ($exp_clone) {
 		# if base is odd 
