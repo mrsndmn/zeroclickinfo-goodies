@@ -6,10 +6,9 @@ use strict;
 use warnings;
 
 zci answer_type => 'quick_pow';
-
 zci is_cached => 1;
 
-triggers start => 'pow';
+triggers startend => 'pow';
 
 # Handle statement
 handle remainder => sub {
