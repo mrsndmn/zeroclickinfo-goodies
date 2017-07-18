@@ -23,7 +23,8 @@ DDH.js_minify.build = function(ops) {
             shown = true;
 
             var $dom = $('.zci--js_minify'),
-                $minifyButton = $dom.find('button'),
+                $minifyButton = $dom.find('.minify-btn'),
+                $copyButton = $dom.find('.copy-btn'),
                 $input = $dom.find('.js_minify--input'),
                 $output = $dom.find('.js_minify--output');
 
@@ -74,7 +75,31 @@ DDH.js_minify.build = function(ops) {
 
                 // Add the output to output textarea field
                 $output.val(output);
+
+				$copyButton.prop('disabled', false);
+				
             });
+
+			// Add click handler for Copy button
+			$copyButton.on('click', function() {
+
+				// Select some text (you could also create a range)
+				$output.select(); 
+				$copyButton.text('Copied');
+				// Use try & catch for unsupported browser
+				try {
+
+					// The important part (copy selected text)
+					var successful = document.execCommand('copy');
+
+					if(successful) $copyButton.text('Copied');
+					else $copyButton.text('Unable to copy!');
+				} catch (err) {
+					$copyButton.text('Unsupported Browser!');
+				}
+
+			});
+
         }
     };
 };
